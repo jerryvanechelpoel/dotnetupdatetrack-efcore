@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{009BC60D-2ED
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IR.DogAndCo.Api.Models", "IR.DogAndCo.Api.Models\IR.DogAndCo.Api.Models.csproj", "{F7C5E8A7-0B08-4920-B068-6D2529AD9B8C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3D2FEB08-FE08-4AB6-A50D-EFD3DCB511AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

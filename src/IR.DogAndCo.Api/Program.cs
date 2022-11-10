@@ -1,3 +1,6 @@
+using IR.DogAndCo.Api;
+using Microsoft.EntityFrameworkCore;
+
 var app = ConfigureServices(args);
 
 ConfigureApp(app);
@@ -14,9 +17,27 @@ static WebApplication ConfigureServices(string[] args)
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
 
+    ConfigureEFCore(builder);
+
     var app = builder.Build();
 
     return app;
+}
+
+static void ConfigureEFCore(WebApplicationBuilder builder)
+{
+    string connectionString = builder.Configuration.GetConnectionString("DogAndCoDbContext");
+
+    Action<DbContextOptionsBuilder> contextOptions = options =>
+    {
+        options.UseSqlServer(connectionString);
+    };
+
+    builder.Services.AddDbContext<DogAndCoDbContext>(contextOptions);
+
+    //builder.Services.AddDbContextPool<DogAndCoDbContext>(contextOptions);
+
+    //builder.Services.AddDbContextFactory<DogAndCoDbContext>(contextOptions);
 }
 
 static void ConfigureApp(WebApplication app)

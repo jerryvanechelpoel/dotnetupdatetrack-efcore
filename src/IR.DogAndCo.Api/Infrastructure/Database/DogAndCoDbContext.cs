@@ -4,6 +4,10 @@ namespace IR.DogAndCo.Api;
 
 public sealed class DogAndCoDbContext : DbContext
 {
+    public DogAndCoDbContext(DbContextOptions<DogAndCoDbContext> options)
+        : base(options)
+    { }
+
     public DbSet<CustomerEntity> Customers { get; set; }
     public DbSet<OrderEntity> Orders { get; set; }
     public DbSet<ProductEntity> Products { get; set; }

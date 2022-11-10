@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure\Database\" />
     <Folder Include="Business\" />
   </ItemGroup>
 

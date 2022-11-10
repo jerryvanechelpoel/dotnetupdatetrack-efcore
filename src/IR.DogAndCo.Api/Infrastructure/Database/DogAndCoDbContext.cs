@@ -2,7 +2,7 @@
 
 namespace IR.DogAndCo.Api;
 
-public sealed class DogAndCoDbContext : DbContext
+public sealed partial class DogAndCoDbContext : DbContext
 {
     public DogAndCoDbContext(DbContextOptions<DogAndCoDbContext> options)
         : base(options)
@@ -13,6 +13,9 @@ public sealed class DogAndCoDbContext : DbContext
     public DbSet<ProductEntity> Products { get; set; }
     public DbSet<ProductTypeEntity> ProductTypes { get; set; }
     public DbSet<PromotionEntity> Promotions { get; set; }
+
+    public IQueryable<CustomerEntity> Top10Customers()
+        => Customers.FromSqlRaw(QueryStore.Top10CustomersQuery);
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
